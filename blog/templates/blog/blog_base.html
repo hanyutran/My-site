@@ -1,0 +1,76 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Site</title>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark flex-column" style="background-color: #18354c">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'projects:project_index' %}">RP Portfolio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'blog:blog_index' %}">Blog</a>
+                </li>
+              </ul>
+            </div>
+        </div>    
+    </nav> -->
+    <nav class="navbar navbar-expand-lg navbar-dark flex-column">
+      <div class="container flex-row">
+          <a class="nav-item " href="{% url 'index' %}">
+            <img src="{% static 'img/logo.png' %}" alt="">
+          </a>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-2 flex-fill">
+              <li class="nav-item">
+              <a class="nav-link" href="{% url 'projects:project_index' %}">Projects</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="{% url 'blog:blog_index' %}">Blog</a>        
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'todo_list:todolist_index' %}">Todo List</a>      
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link" href="#">More</a>        
+              </li>
+              </ul>
+              
+              <ul class="navbar-nav">
+              <li class="nav-item form-inline">
+              <a class="btn btn-sm btn-primary px-3" href="#">Join</a>
+              </li>
+              <li class="nav-item">
+              <a class="btn text-light" href="#">Sign In</a>
+              </li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+
+    <div class="">
+        {% block page_content %}{% endblock %}
+    </div>
+</body>
+</html>
