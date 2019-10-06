@@ -1,0 +1,21 @@
+* {    
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.navbar {
+    background-color: #000032 !important;
+    font-size: 1.4em !important;
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
+}
+.navbar a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.nav-item{
+    padding-right: 1em;
+}
