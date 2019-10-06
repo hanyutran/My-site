@@ -1,0 +1,32 @@
+{% extends "projects/project_base.html" %}
+{% load static %}
+{% block page_content %}
+
+    <h1>TODO LIST</h1>
+    {% for list in todolists %}
+        <h2>Title: {{list.title}}</h2>
+        <h4>Note: {{list.note}}</h4>
+        <h4>Created on: {{list.created_time}}</h4>
+        <h4>Begin at: {{list.begin_time}}</h4>
+        <h4>Deadline: {{list.end_time}}</h4>
+        <h4>so sanh: </h4>
+    {% endfor %}
+
+    <form action="/todolist/" method="POST">
+        {% csrf_token %}
+        <label for="title">Title: </label>
+        <input type="text" name='title' placeholder="title">
+
+        <label for="note">Note: </label>
+        <input type="text" name='note' placeholder="note">
+        
+        <label for="begin_time">Begin at: </label>
+        <input type="date" name='begin_time' placeholder="begin_time">
+        
+        <label for="end_time">Deadline: </label>
+        <input type="date" name='end_time' placeholder="end_time">
+
+        <input type="submit" name="" value="ADD">
+    </form>
+
+{% endblock %}
