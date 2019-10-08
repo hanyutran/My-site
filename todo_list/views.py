@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from todo_list.models import TodoList
+from django.urls import reverse
 
 def create_todolist(request):
     if request.method == 'POST':
@@ -19,4 +20,18 @@ def create_todolist(request):
         "todolists": todo,
     }
     return render(request, "todo_list/todolist.html", context)
+
+
+def remove_todolist(request, pk):
+    todolist = get_object_or_404(TodoList, pk=pk)
+    todolist.delete()
+
+    return redirect('todo_list:todolist_index')
+
+def done_todolist(request, pk):
+    todolist = get_object_or_404(TodoList, pk=pk)
+    todolist.done = True
+    todolist.save()
+
+    return redirect('todo_list:todolist_index')
     

@@ -3,14 +3,39 @@
 {% block page_content %}
 
     <h1>TODO LIST</h1>
-    {% for list in todolists %}
-        <h2>Title: {{list.title}}</h2>
-        <h4>Note: {{list.note}}</h4>
-        <h4>Created on: {{list.created_time}}</h4>
-        <h4>Begin at: {{list.begin_time}}</h4>
-        <h4>Deadline: {{list.end_time}}</h4>
-        <h4>so sanh: </h4>
-    {% endfor %}
+    <div class="row">
+        <div class="col">
+        {% for list in todolists %}
+            {% if list.done == False %}                
+                <h2>Title: {{list.title}}</h2>
+                <h4>Note: {{list.note}}</h4>
+                <h4>Created on: {{list.created_time}}</h4>
+                <h4>Begin at: {{list.begin_time}}</h4>
+                <h4>Deadline: {{list.end_time}}</h4>
+                <a class="btn btn-default" href="{% url 'todo_list:todo_remove' pk=list.pk %}">
+                    <i class="fas fa-times-circle"></i>remove
+                </a>
+                <a class="btn btn-default" href="{% url 'todo_list:todo_done' pk=list.pk %}">
+                    <i class="fas fa-times-circle"></i>DONE
+                </a>
+            {% endif %}
+        {% endfor %}
+        </div>
+        <div class="col">
+        {% for list in todolists %}
+            {% if list.done == True %}                
+                <h2>Title: {{list.title}}</h2>
+                <h4>Note: {{list.note}}</h4>
+                <h4>Created on: {{list.created_time}}</h4>
+                <h4>Begin at: {{list.begin_time}}</h4>
+                <h4>Deadline: {{list.end_time}}</h4>
+                <a class="btn btn-default" href="{% url 'todo_list:todo_remove' pk=list.pk %}">
+                    <i class="fas fa-times-circle"></i>remove
+                </a>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
 
     <form action="/todolist/" method="POST">
         {% csrf_token %}

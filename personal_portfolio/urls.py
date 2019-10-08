@@ -22,5 +22,5 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('projects/', include('projects.urls', namespace='projects')),
     path("blog/", include("blog.urls"), name='blog'),
-    path('todolist/', include('todo_list.urls'), name='todo_list'),
+    path('todolist/', include('todo_list.urls', namespace='todo_list')),
 ]

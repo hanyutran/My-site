@@ -9,6 +9,7 @@ class TodoList(models.Model):
     created_time = models.DateTimeField(default=timezone.now())
     begin_time = models.DateField()
     end_time = models.DateField()
+    done = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
